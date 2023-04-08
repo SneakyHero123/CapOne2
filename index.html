@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+
+
+<meta name="viewport" content="width=device-width">
+
+<meta name="apple-mobile-web-app-capable" content="yes" /> 
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="apple-touch-icon" href="unnamed.png" />
+<link rel="apple-touch-startup-image" href="caponeloading.png" />
+
+
+
+<title>Capital One</title>
+
+
+<style>
+html, body {
+	    height: 100%;
+	    text-align:center;
+	    margin: 0px;
+	    padding: 0px;
+	    color: #f4f4f4;
+background-color: #013d5b;
+		max-width: 1170px;
+	}
+
+
+
+#checkinghome{
+position: absolute;
+left: 46px;
+top: 710px;
+}
+
+#savinghome{
+position: absolute;
+left: 46px;
+top: 1145px;
+}
+
+#back{
+position: absolute;
+left: 23px;
+top: 104px;
+z-index:1;
+}
+
+#home{
+position: fixed;
+left: 100px;
+bottom: 109px;
+z-index:1;
+}
+
+#payhelpprofile{
+position: fixed;
+left: 360px;
+bottom: 105px;
+z-index:1;
+}
+
+
+
+</style>
+
+<script>
+function clickinner(target) {
+	if(target.classList.contains('homeBack')) {
+        document.getElementById("main").src='CapOneHomeTemp.png';
+	target.style.display = "none";
+	document.getElementById("home").style.display = "none";
+	document.getElementById("checkinghome").style.display = "block";
+	document.getElementById("savinghome").style.display = "block";
+	document.getElementById("back").style.display = "none";
+    } else if(target.classList.contains('checking')){
+        document.getElementById("main").src='checking.png';
+	target.style.display = "none";
+	document.getElementById("savinghome").style.display = "none";
+	document.getElementById("back").style.display = "block";
+	document.getElementById("home").style.display = "block";
+    }
+	else if(target.classList.contains('home')) {
+	 target.style.display = "none";
+        document.getElementById("main").src='CapOneHomeTemp.png';
+	document.getElementById("back").style.display = "none";
+	document.getElementById("checkinghome").style.display = "block";
+	document.getElementById("savinghome").style.display = "block";
+	document.getElementById("back").style.display = "none";
+    }
+	 else if(target.classList.contains('savings')){
+        document.getElementById("main").src='savings.png';
+	target.style.display = "none";
+	document.getElementById("checkinghome").style.display = "none";
+	document.getElementById("back").style.display = "block";
+	document.getElementById("home").style.display = "block";
+    }
+
+	else if(target.classList.contains('error')){
+        document.getElementById("main").src='caponeerror.png';
+	document.getElementById("back").style.display = "none";
+	document.getElementById("savinghome").style.display = "none";
+	document.getElementById("checkinghome").style.display = "none";
+	document.getElementById("home").style.display = "block";
+    }
+}
+</script>
+
+<body>
+
+<input type="image" class="homeBack" id="back" style="display: none;" onClick="javascript:clickinner(this);" src="back.png">
+<input type="image" class="home" id="home" style="display: none;" onClick="javascript:clickinner(this);" src="home.png">
+<!-- <input type="image" class="error" id="payhelpprofile" onClick="javascript:clickinner(this);" src="payhelpprofile.png"> -->
+
+<input type="image" class="checking" id="checkinghome" style="display: block;" onClick="javascript:clickinner(this);" src="checkingHome.png" />
+<input type="image" class="savings" id="savinghome" style="display: block;" onClick="javascript:clickinner(this);" src="savingsHome.png" />
+<img id="main" src="CapOneHomeTemp.png">
+
+</body>
+<img style="position: fixed; bottom:0; left:0; width: 1170px" src="footer.png">
+</html> 
